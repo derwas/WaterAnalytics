@@ -1,0 +1,173 @@
+/* Sticky footer styles
+-------------------------------------------------- */
+html,
+body {
+  height: 100%;
+    min-height:100%;
+  /* The html and body elements cannot have any padding or margin. */
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -100px;
+  /* Pad bottom by footer height */
+  padding: 0 0 100px;
+}
+/* Set the fixed height of the footer here */
+#footer {
+  height: 100px;
+}
+/* -------------------------------------------------- */
+
+
+footer {
+	background-color: #006433;
+	border-color: #006433;
+	padding: 20px;
+	color: #FFF;
+}
+
+
+/* set min-width of page (i.e. non responsive layout) */
+.container {
+	min-width: 1200px;
+}
+
+/* set background for graphic */
+.picture-background::after{
+	content: "";
+  background: url(../images/nature-bg.png) 0px -560px repeat-x;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+  background-color: #51BD24;
+  margin-top: 0;
+}
+
+
+
+/* NAVBAR */
+
+.navbar-inverse {
+	background-color: #006433;
+	border-color: #006433;
+	padding: 5px;
+	color: #FFF;
+	box-shadow: 0px 0px 10px #000;
+}
+
+.navbar-inverse .navbar-toggle {
+	border-color: #c7e7dc;
+}
+
+.navbar-inverse .navbar-nav > li > a,
+.navbar-inverse .navbar-brand  {
+	color: #FFF;
+	text-align: center;
+}
+
+.navbar-inverse .navbar-brand {
+	line-height: 40px;
+	font-size: 450%;
+}
+
+.navbar-inverse .navbar-collapse {
+	border-color: rgb(185, 183, 183);
+	float: right;
+	padding: 0;
+	overflow: hidden;
+}
+
+.navbar-inverse .in,
+.navbar-inverse .collapsing {
+	float: none;
+	padding-left: 18px;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+	font-size: 180%;
+	line-height: 50px;
+	padding: 15px 30px;
+}
+
+.navbar-inverse .navbar-toggle {
+	margin-top: 14px;
+}
+
+.navbar-inverse .navbar-toggle:hover, 
+.navbar-inverse .navbar-toggle:focus {
+	background-color: #d2e7c4;
+}
+
+.navbar-inverse .navbar-toggle:hover .icon-bar, 
+.navbar-inverse .navbar-toggle:focus .icon-bar {
+	background-color: #006433;
+}
+
+.navbar-inverse .navbar-nav > .active > a, 
+.navbar-inverse .navbar-nav > .active > a:hover, 
+.navbar-inverse .navbar-nav > .active > a:focus {
+	color: white;
+	background-color: #428bca;
+}
+
+.navbar-inverse .navbar-nav .badge {
+	position: absolute;
+	top: 45px;
+	background: #d2e7c4;
+	left: 89px;
+	color: #006433;
+	font-size: 120%;
+	padding: 3px 6px;
+	display: none;
+}
+
+.navbar-collapse {
+	padding-right:	none;
+}
+
+
+/* CONTENT */
+
+
+.color-container {
+	background: #d2e7c4;
+	padding: 30px 0 80px;
+}
+
+
+.featurette {
+	overflow: hidden; 
+}
+
+.featurette-image.pull-left {
+	margin-right: 40px;
+}
+.featurette-image.pull-right {
+	margin-left: 40px;
+}
+
+.featurette-heading {
+	font-size: 50px;
+}
+
+
+/* RESPONSIVE CSS */
+
+@media (max-width: 1200px) {
+
+	.headline > .container > h1 {font-size: 140px;}
+	.headline > .container > h2 {font-size: 63px;}
+	.featurette-divider {margin: 50px 0;}
+	.featurette-image.pull-left {margin-right: 20px;}
+	.featurette-image.pull-right {margin-left: 20px;}
+	.featurette-heading {font-size: 35px;}
+
+}

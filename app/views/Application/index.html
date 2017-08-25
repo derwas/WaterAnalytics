@@ -1,0 +1,63 @@
+#{extends 'main.html' /}
+#{set title:'Home' /}
+
+<header id="main">
+    <div class="container">
+                <div class="navbar-header">
+            <span class="navbar-brand">
+            <a class="logo" href="http://www.waternomics.eu" target="_blank"><img src="/public/images/waternomics-logo.png" alt="Waternomics"></a>
+            </span>
+        </div>
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="@{Application.index}">Home</a></li>
+                <li><a href="@{RestAPI.index}">API</a></li>
+            </ul>
+        </div>
+        <span class="second-name">Water Usage Analytics Service</span>
+    </div>
+</header>
+
+<p align="center"><strong>${msg}</strong>
+</p>
+<div class="container" id="main-container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2>How to get your Water Usage Analytics?</h2>
+            	
+            </div>
+            <div class="panel-body">
+            To visualize the water usage analytics, fill in and validate this form.
+            <br>
+<form action="@{Application.analytics()}" method="get" accept-charset="utf-8" enctype="multipart/form-data" >
+  User ID*:<br>
+  <input type="text" name="userID">
+<br>
+  API Key*:<br>
+  <input type="text" name="APIKey">
+<br>
+  Sensor ID*:<br>
+  <input type="text" name="sensorID">
+<br>
+  Month:
+  <input type="number" name="month" min="1" max="12" step="1">
+Year:
+  <input type="number" name="year" min="2010" max="2020" step="1">
+<br>
+  <input type="submit" value="Submit">
+
+</form>
+<p>Note that fields marked with * are mandatory.</p>
+
+<br>
+<br>
+Alternatively you can construct the following URL /analytics?sensorID={sensorID}&userID={your user name}&APIKey={your API Key}&month={month in the format MM}&year={year in the format YYYY}.
+            <br>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

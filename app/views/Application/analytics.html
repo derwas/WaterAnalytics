@@ -1,0 +1,127 @@
+#{extends 'main.html' /}
+#{set title:'Analytics' /}
+
+
+<header id="main">
+    <div class="container">
+                <div class="navbar-header">
+            <span class="navbar-brand">
+            <a class="logo" href="http://www.waternomics.eu" target="_blank"><img src="/public/images/waternomics-logo.png" alt="Waternomics"></a>
+            </span>
+        </div>
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="@{Application.index}">Home</a></li>
+                <li><a href="@{RestAPI.index}">API</a></li>
+            </ul>
+        </div>
+        <span class="second-name">Water Usage Analytics Service</span>
+    </div>
+</header>
+
+
+<div class="container" id="main-container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+               		 <h2>Water consumption observed by  Sensor ID: ${sensorID} for ${mm}/${yy}</h2>
+               		 <a href="${previous}" class="btn btn-default" role="button">  <span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span>
+</a>
+<a href="${next}" class="btn btn-default" role="button">  <span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+</a>
+            </div>
+            <div class="panel-body">
+            <div id="chart"></div>
+            	<script>
+            	var chart = c3.generate({
+    data: {
+    	x: 'x',
+    	xFormat : '%Y-%m-%d',
+        columns: [
+            ['x',${timeseries}],
+            ['Daily Water Usage for Working Days', ${dataWD}],
+            ['Daily Water Usage for NON Working Days', ${dataNWD}]
+            
+        ],
+        type: 'bar'
+    },
+    bar: {
+        width: {
+            ratio: 0.5 // this makes bar width 50% of length between ticks
+        }
+   
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+    grid: {
+        y: {
+            lines: [{value:${avgWD}, text: 'Avg in working days', position: 'middle'},
+           			{value:${avgNWD}, text: 'Avg in non working days'}
+            		]
+        }
+    },
+    axis: {
+     x: {
+      	type: 'timeseries',
+      	tick: {
+      		format: '%Y-%m-%d',
+      		rotate: 75
+      	}
+      },
+      
+      y: {
+        label: { 
+          text: 'Water Volume in m3',
+          position: 'outer-middle'
+        }
+      }
+    }
+});
+            	</script>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2>How to get your Water Usage Analytics?</h2>
+            	
+            </div>
+            <div class="panel-body">
+            To visualize the water usage analytics, fill in and validate this form.
+            <br>
+<form action="@{Application.analytics()}" method="get" accept-charset="utf-8" enctype="multipart/form-data" >
+  User ID*:<br>
+  <input type="text" name="userID">
+<br>
+  API Key*:<br>
+  <input type="text" name="APIKey">
+<br>
+  Sensor ID*:<br>
+  <input type="text" name="sensorID">
+<br>
+  Month:
+  <input type="number" name="month" min="1" max="12" step="1">
+Year:
+  <input type="number" name="year" min="2010" max="2020" step="1">
+<br>
+  <input type="submit" value="Submit">
+
+</form>
+<p>Note that fields marked with * are mandatory.</p>
+
+<br>
+<br>
+Alternatively you can construct the following URL /analytics?sensorID={sensorID}&userID={your user name}&APIKey={your API Key}&month={month in the format MM}&year={year in the format YYYY}.
+            <br>
+            </div>
+            
+        </div>
+    </div>
+</div>
+</div>

@@ -1,0 +1,53 @@
+#{extends 'main.html' /}
+#{set title:'Rest API' /}
+
+<header id="main">
+    <div class="container">
+                <div class="navbar-header">
+            <span class="navbar-brand">
+            <a class="logo" href="http://www.waternomics.eu" target="_blank"><img src="/public/images/waternomics-logo.png" alt="Waternomics"></a>
+            </span>
+        </div>
+        <div class="navbar pull-right">
+            <ul class="nav navbar-nav">
+                <li><a href="@{Application.index}">Home</a></li>
+                <li class="active"><a href="@{RestAPI.index}">API</a></li>
+            </ul>
+        </div>
+        <span class="second-name">Water Usage Analytics Service</span>
+    </div>
+</header>
+
+
+<div class="container" id="main-container">
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2>REST API </h2>
+            </div>
+            <div class="panel-body">
+            </div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>URL</th>
+                        <th>Response</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><b><a href="@{RestAPI.getAnalytics("M1n","2","2016")}">@{RestAPI.getAnalytics()}/getanalytics?sensorID=M1n&month=2&year=2016&APIKey={your API Key}&userID={your user ID}</a></b></td>
+                        <td>Return the water usage analytics for a sensor during a particular month of a year .</td>
+                    </tr>
+                    <tr>
+                        <td><b><a href="@{RestAPI.getDayAnalytics("509","22","12","2015")}">@{RestAPI.getDayAnalytics()}/getdayanalytics?sensorID=509&day=22&month=12&year=2015</a></b></td>
+                        <td>Return the water usage analytics for a sensor during a particular day.</td>
+                    </tr>
+               </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>

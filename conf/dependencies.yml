@@ -1,0 +1,7 @@
+# Application dependencies
+
+require:
+- play
+- com.google.code.gson -> gson 2.3.1
+- org.json -> org.json chargebee-1.0
+- org.apache.httpcomponents -> httpclient 4.5
